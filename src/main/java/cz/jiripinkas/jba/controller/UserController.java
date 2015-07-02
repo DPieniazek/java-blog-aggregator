@@ -57,10 +57,7 @@ public class UserController {
 		return "redirect:/account.html";
 	}
 	
-	@RequestMapping("/feeds")
-	public String showFeeds(){
-		return "feeds";
-	}
+	
 	
 	
 	//18 video might be helpful 8:00

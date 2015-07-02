@@ -49,4 +49,16 @@
     <put-attribute name="current" value="feeds" />
   </definition>
   
+  <definition name="feed" extends="common">
+    <put-attribute name="title" value="Feed" />
+    <put-attribute name="body" value="/WEB-INF/jsp/feed.jsp" />
+    <put-attribute name="current" value="feeds" />
+  </definition>
+  
+  <definition name="comment" extends="common">
+    <put-attribute name="title" value="Comment" />
+    <put-attribute name="body" value="/WEB-INF/jsp/comment.jsp" />
+    <put-attribute name="current" value="feeds" />
+  </definition>
+  
 </tiles-definitions>

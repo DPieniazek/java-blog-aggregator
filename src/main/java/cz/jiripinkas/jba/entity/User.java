@@ -54,6 +54,9 @@ public class User {
 	
 	@OneToMany(mappedBy="user", fetch=FetchType.LAZY, cascade=CascadeType.REMOVE)
 	private List<Blog> blogs;
+	
+	@OneToMany(mappedBy="user")
+	private List<Comment> comments;	
 
 	public List<Blog> getBlogs() {
 		return blogs;

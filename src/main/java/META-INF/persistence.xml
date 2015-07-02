@@ -5,5 +5,7 @@
 		<class>cz.jiripinkas.jba.entity.Role</class>
 		<class>cz.jiripinkas.jba.entity.Blog</class>
 		<class>cz.jiripinkas.jba.entity.Item</class>
+		<class>cz.jiripinkas.jba.entity.Feed</class>
+		<class>cz.jiripinkas.jba.entity.Comment</class>
 	</persistence-unit>
 </persistence>

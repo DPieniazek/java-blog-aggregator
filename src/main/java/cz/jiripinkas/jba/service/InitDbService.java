@@ -12,9 +12,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import cz.jiripinkas.jba.entity.Blog;
+import cz.jiripinkas.jba.entity.Feed;
 import cz.jiripinkas.jba.entity.Role;
 import cz.jiripinkas.jba.entity.User;
 import cz.jiripinkas.jba.repository.BlogRepository;
+import cz.jiripinkas.jba.repository.FeedRepository;
 import cz.jiripinkas.jba.repository.ItemRepository;
 import cz.jiripinkas.jba.repository.RoleRepository;
 import cz.jiripinkas.jba.repository.UserRepository;
@@ -34,6 +36,9 @@ public class InitDbService {
 	
 	@Autowired
 	private ItemRepository itemRepository;
+	
+	@Autowired
+	private FeedRepository FeedRepository;
 	
 	@PostConstruct
 	public void init(){
@@ -58,11 +63,20 @@ public class InitDbService {
 			userAdmin.setRoles(roles);
 			userRepository.save(userAdmin);
 			
-			Blog blogJavavids = new Blog();
-			blogJavavids.setName("AGH");
-			blogJavavids.setUrl("https://www.facebook.com/feeds/page.php?id=239574985661&format=rss20");
-			blogJavavids.setUser(userAdmin);
-			blogRepository.save(blogJavavids);
+			User simpleUser = new User();
+			simpleUser.setEnabled(true);
+			simpleUser.setName("user1");
+			simpleUser.setPassword(encoder.encode("12345"));
+			roles = new ArrayList<Role>();
+			roles.add(roleUser);
+			simpleUser.setRoles(roles);
+			userRepository.save(simpleUser);
+			
+			Feed feed = new Feed();
+			feed.setTitle("Testing title");
+			feed.setDescription("Testing descp");
+			FeedRepository.save(feed);
+			
 		}
 	}
 	
