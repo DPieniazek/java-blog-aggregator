@@ -62,8 +62,9 @@
                             <li class="${current == 'account' ? 'active' : ''}"><a href="<spring:url value="/account.html"/>">My account</a></li>
               				<li><a href="<spring:url value="/logout"/>">Logout</a></li>
               </security:authorize>
+              <security:authorize access="hasRole('ROLE_USER')">
               <li class="${current == 'feeds' ? 'active' : ''}"><a href="<spring:url value="/feeds.html"/>">Feeds</a></li>
-              
+              </security:authorize>
               
 <!--               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
